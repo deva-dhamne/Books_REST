@@ -12,6 +12,8 @@ namespace Books.WebApi.Services
 
         void Update(Book book);
 
+        bool UpdatePrice(int id, decimal price);
+
         void Delete(int id);
     }
 }

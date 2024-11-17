@@ -20,6 +20,8 @@ namespace Books.WebApi.Services
 
         public void Update(Book book) => _booksRepository.Update(book);
 
+        public bool UpdatePrice(int id, decimal price) => _booksRepository.UpdatePrice(id, price);
+
         public void Delete(int id) => _booksRepository.Delete(id);
     }
 }

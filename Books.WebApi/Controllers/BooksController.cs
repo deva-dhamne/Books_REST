@@ -45,6 +45,23 @@ namespace Books.WebApi.Controllers
             return NoContent();
         }
 
+        [HttpPatch("{id}/price")]
+        public IActionResult UpdatePrice(int id, [FromBody] decimal price)
+        {
+            if (price <= 0) return BadRequest("Price must be greater than zero.");
+
+            var existingBook = _bookService.GetById(id);
+            if (existingBook == null) return NotFound();
+
+            if (!_bookService.UpdatePrice(id, price))
+            {
+                return StatusCode(500, "Failed to update the price.");
+            }
+
+            return NoContent();
+        }
+
+
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {

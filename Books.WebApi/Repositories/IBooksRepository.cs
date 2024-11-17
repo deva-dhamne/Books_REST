@@ -6,15 +6,13 @@ namespace Books.WebApi.Repositories
     {
         IEnumerable<Book> GetAll();
 
-
         Book GetById(int id);
-
 
         void Add(Book book);
 
-
         bool Update(Book book);
 
+        bool UpdatePrice(int id, decimal price);
 
         bool Delete(int id);
     }

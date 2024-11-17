@@ -25,6 +25,15 @@ namespace Books.WebApi.Repositories
 
         public bool Update(Book book) => _booksCollection.Update(book);
 
+        public bool UpdatePrice(int id, decimal price)
+        {
+            var book = _booksCollection.FindById(id);
+            if (book == null) return false;
+
+            book.Price = price;
+            return _booksCollection.Update(book);
+        }
+
         public bool Delete(int id) => _booksCollection.Delete(id);
     }
 }
